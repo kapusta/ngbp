@@ -1,0 +1,36 @@
+{
+  "name": "ngbp",
+  "version": "1.0.0",
+  "description": "An AngularJS 1.x Boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kapusta/ngbp"
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Daniel Kapusta",
+    "url": "http://about.me/dankapusta"
+  },
+  "scripts": {
+    "start": "concurrently --kill-others 'lite-server -c bs-config.json' 'grunt watch'",
+    "server": "lite-server -c bs-config.json"
+  },
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "grunt": "^1.0.1",
+    "grunt-angular-templates": "^1.1.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^2.0.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^2.2.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-ng-annotate": "^3.0.0",
+    "lite-server": "^2.3.0"
+  },
+  "dependencies": {
+    "angular-websocket": "^2.0.1",
+    "lodash": "^4.17.4"
+  }
+}
