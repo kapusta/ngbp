@@ -1,0 +1,9 @@
+{
+  "port": 9001,
+  "reloadDebounce": 250,
+  "files": ["www/**/*.{html,htm,css,js}"],
+  "server": {
+    "baseDir": "www",
+    "index": "index.html"
+  }
+}
