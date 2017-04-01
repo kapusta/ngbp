@@ -1,7 +1,4 @@
-# ngbp
-=======
-
-An AngularJS 1.x Boilerplate
+# ngbp - An AngularJS 1.x Boilerplate
 
 ## Get Started
 
