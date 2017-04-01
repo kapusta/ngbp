@@ -13,10 +13,14 @@
   },
   "scripts": {
     "start": "concurrently --kill-others 'lite-server -c bs-config.json' 'grunt watch'",
-    "server": "lite-server -c bs-config.json"
-  },
+    "server": "lite-server -c bs-config.json",
+    "eslint": "eslint --ext .js src/components --ext .js || exit 0"
+},
   "devDependencies": {
     "concurrently": "^3.1.0",
+    "eslint": "^3.19.0",
+    "eslint-config-angular": "^0.5.0",
+    "eslint-plugin-angular": "^2.2.1",
     "grunt": "^1.0.1",
     "grunt-angular-templates": "^1.1.0",
     "grunt-contrib-clean": "^1.0.0",
