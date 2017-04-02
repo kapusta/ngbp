@@ -1,16 +1,16 @@
 module.exports = function (grunt) {
 
-  grunt.loadNpmTasks("grunt-contrib-jshint");
-  grunt.loadNpmTasks("grunt-contrib-uglify");
-  grunt.loadNpmTasks("grunt-contrib-watch");
-  grunt.loadNpmTasks("grunt-contrib-cssmin");
-  grunt.loadNpmTasks("grunt-contrib-copy");
-  grunt.loadNpmTasks("grunt-contrib-clean");
-  grunt.loadNpmTasks("grunt-contrib-concat");
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-angular-templates');
-  grunt.loadNpmTasks("grunt-ng-annotate");
+  grunt.loadNpmTasks('grunt-ng-annotate');
 
-  // if you simply run "grunt" these default tasks will execute, IN THE ORDER THEY APPEAR!
+  // if you simply run 'grunt' these default tasks will execute, IN THE ORDER THEY APPEAR!
   grunt.registerTask('default', ['jshint', 'clean', 'ngAnnotate', 'ngtemplates', 'uglify', 'concat', 'cssmin', 'copy']);
 
   grunt.initConfig({
@@ -56,7 +56,7 @@ module.exports = function (grunt) {
         src: [
           'components/**/*.html'
         ],
-        dest: 'tmp/ngbp-components.min.js',
+        dest: './tmp/ngbp-components.min.js',
         options: {
           standalone: false,
           prefix: '/',
@@ -86,7 +86,7 @@ module.exports = function (grunt) {
       'ngbp': {
         // grab the uglified app and compiled templates
         src: ['<%= uglify.ngbp.dest %>', '<%= ngtemplates.ngbp.dest %>'],
-        dest: 'tmp/ngbp.min.js'
+        dest: './tmp/ngbp.min.js'
       }
     },
 
@@ -118,7 +118,7 @@ module.exports = function (grunt) {
             src: [
               'tmp/ngbp.min.js',
               'tmp/ngbp.uglified.js.map',
-              'node_modules/angular-websocket/dist/angular-websocket.min.js'
+              'node_modules/angular-websocket/dist/angular-websocket.min.js',
               'node_modules/lodash/lodash.min.js'
             ],
             dest: './www/js/',
@@ -140,9 +140,9 @@ module.exports = function (grunt) {
     },
 
     watch: {
-      stuff: {
+      everything: {
         files: "<%= './src/**/*' %>",
-        tasks: ["default"]
+        tasks: ['default']
       },
     }
   });
