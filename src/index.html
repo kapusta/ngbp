@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ngbp">
+<head>
+  <title>ngbp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+  <base href="/"><!-- https://github.com/angular/angular.js/commit/aef098006302689d2d75673be828e31903ee7c3c -->
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/ngbp.min.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+  <script src="/js/lodash.min.js"></script>
+  <script src="/js/ngbp.min.js"></script>
+
+</head>
+<body>
+  <div class="container-fluid" style="padding: 5px 20px 0px 20px;">
+    <ngbp-navs></ngbp-navs>
+    <div ng-view class="container-fluid"></div>
+  </div>
+</body>
+</html>
