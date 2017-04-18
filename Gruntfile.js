@@ -7,6 +7,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-angular-templates');
+  grunt.loadNpmTasks('grunt-babel');
 
   // if you simply run 'grunt' these default tasks will execute, IN THE ORDER THEY APPEAR!
   grunt.registerTask('default', ['jshint', 'clean', 'babel', 'ngtemplates', 'concat', 'cssmin', 'copy']);
@@ -34,7 +35,7 @@ module.exports = function (grunt) {
       }
     },
 
-    babel : {
+    babel: {
       options: {
         sourceMap: true,
         minified: true,
@@ -73,8 +74,8 @@ module.exports = function (grunt) {
 
     concat: {
       'ngbp': {
-        // grab the uglified app and compiled templates
-        src: ['<%= uglify.ngbp.dest %>', '<%= ngtemplates.ngbp.dest %>'],
+        // grab the babel'd app and compiled templates
+        src: ['./tmp/ngbp.annotated.js', '<%= ngtemplates.ngbp.dest %>'],
         dest: './tmp/ngbp.min.js'
       }
     },
@@ -106,7 +107,7 @@ module.exports = function (grunt) {
             flatten: true,
             src: [
               'tmp/ngbp.min.js',
-              //'tmp/ngbp.uglified.js.map',
+              'tmp/ngbp.annotated.js.map',
               'node_modules/angular-websocket/dist/angular-websocket.min.js',
               'node_modules/lodash/lodash.min.js'
             ],
