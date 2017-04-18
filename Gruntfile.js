@@ -1,17 +1,15 @@
 module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-angular-templates');
-  grunt.loadNpmTasks('grunt-ng-annotate');
 
   // if you simply run 'grunt' these default tasks will execute, IN THE ORDER THEY APPEAR!
-  grunt.registerTask('default', ['jshint', 'clean', 'ngAnnotate', 'ngtemplates', 'uglify', 'concat', 'cssmin', 'copy']);
+  grunt.registerTask('default', ['jshint', 'clean', 'babel', 'ngtemplates', 'concat', 'cssmin', 'copy']);
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -36,10 +34,12 @@ module.exports = function (grunt) {
       }
     },
 
-    ngAnnotate: {
+    babel : {
       options: {
-        add: true,
-        singleQuotes: true
+        sourceMap: true,
+        minified: true,
+        presets: ['es2015'],
+        plugins: ['angularjs-annotate']
       },
       ngbp: {
         files: {
@@ -68,17 +68,6 @@ module.exports = function (grunt) {
             keepClosingSlash:               true // needed for SVGs
           }
         }
-      }
-    },
-
-    uglify: {
-      ngbp: {
-        options: {
-          sourceMap: true,
-          report: 'min'
-        },
-        src: ['./tmp/ngbp.annotated.js'],
-        dest: './tmp/ngbp.uglified.js'
       }
     },
 
@@ -117,7 +106,7 @@ module.exports = function (grunt) {
             flatten: true,
             src: [
               'tmp/ngbp.min.js',
-              'tmp/ngbp.uglified.js.map',
+              //'tmp/ngbp.uglified.js.map',
               'node_modules/angular-websocket/dist/angular-websocket.min.js',
               'node_modules/lodash/lodash.min.js'
             ],
