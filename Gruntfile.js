@@ -42,11 +42,14 @@ module.exports = function (grunt) {
         presets: ['es2015'],
         plugins: ['angularjs-annotate']
       },
-      ngbp: {
-        files: {
-          './tmp/ngbp.annotated.js':
-          ['./src/js/ngbp.js', './src/js/**/*.js', './src/components/**/*.js']
-        }
+      dist: {
+        files: [
+          {
+            src: ['./src/js/ngbp.js', './src/js/**/*.js', './src/components/**/*.js'],
+            dest: './tmp/ngbp.annotated.js',
+            filter: 'isFile'
+          }
+        ]
       }
     },
 
