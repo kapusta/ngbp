@@ -35,6 +35,7 @@ module.exports = function (grunt) {
       }
     },
 
+    // https://babeljs.io/docs/usage/api/#options
     babel: {
       options: {
         comments: false,
