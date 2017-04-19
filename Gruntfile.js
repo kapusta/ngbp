@@ -37,19 +37,16 @@ module.exports = function (grunt) {
 
     babel: {
       options: {
-        sourceMap: true,
+        comments: false,
+        compact: true,
+        sourceMaps: true,
         minified: true,
         presets: ['es2015'],
         plugins: ['angularjs-annotate']
       },
       dist: {
-        files: [
-          {
-            src: ['./src/js/ngbp.js', './src/js/**/*.js', './src/components/**/*.js'],
-            dest: './tmp/ngbp.annotated.js',
-            filter: 'isFile'
-          }
-        ]
+        src: ['./src/js/ngbp.js', './src/js/**/*.js', './src/components/**/*.js'],
+        dest: './tmp/ngbp.annotated.js'
       }
     },
 
