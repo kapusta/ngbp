@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "concurrently --kill-others 'lite-server -c bs-config.json' 'grunt watch'",
-    "eslint": "eslint --ext .js src/components --ext .js || exit 0",
+    "eslint": "eslint --ext .js src --ext .js || exit 0",
     "build": "grunt"
   },
   "devDependencies": {
