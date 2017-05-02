@@ -7,9 +7,10 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-angular-templates');
   grunt.loadNpmTasks('grunt-babel');
+  grunt.loadNpmTasks('grunt-browserify');
 
   // if you simply run 'grunt' these default tasks will execute, IN THE ORDER THEY APPEAR!
-  grunt.registerTask('default', ['clean', 'babel', 'ngtemplates', 'concat', 'cssmin', 'copy']);
+  grunt.registerTask('default', ['clean', 'babel', 'browserify', 'ngtemplates', 'concat', 'cssmin', 'copy']);
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -33,13 +34,24 @@ module.exports = function (grunt) {
         comments: false,
         compact: true,
         sourceMaps: true,
-        minified: true,
+        minified: false,
         presets: ['es2015'],
         plugins: ['angularjs-annotate']
       },
       dist: {
         src: ['./src/js/ngbp.js', './src/js/**/*.js', './src/components/**/*.js'],
         dest: './tmp/ngbp.annotated.js'
+      }
+    },
+
+    // https://github.com/jmreidy/grunt-browserify
+    browserify: {
+      ngbp: {
+        src: ['./tmp/ngbp.annotated.js'],
+        dest: './tmp/browserified.js',
+        options: {
+          require: ['angular'],
+        }
       }
     },
 
