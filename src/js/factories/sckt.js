@@ -1,5 +1,4 @@
 (function(angular){
-  'use strict';
 
   /**
     @name sckt
@@ -12,7 +11,7 @@
 
     var sockets = {};
 
-    var connect = function(url) {
+    var connect = url => {
       var b64 = window.btoa(url);
       if (sockets[b64]) {
         sockets[b64].connections++;
@@ -27,7 +26,7 @@
       }
     };
 
-    var disconnect = function(url) {
+    var disconnect = url => {
       var b64 = window.btoa(url);
       if (sockets[b64]) {
         sockets[b64].connections--;
@@ -40,8 +39,8 @@
     };
 
     return {
-      'connect': connect,
-      'disconnect': disconnect
+      connect,
+      disconnect
     };
 
   });
