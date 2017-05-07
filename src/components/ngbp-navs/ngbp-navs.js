@@ -5,23 +5,34 @@
 @description opens a websocket and gets gps data
 @example <ngbp-navs></ngbp-navs>
 */
-(function(angular){
-  'use strict';
-  angular.module('ngbp').component('ngbpNavs', {
-    templateUrl: '/components/ngbp-navs/ngbp-navs.html',
-    controllerAs: 'ctrl',
-    controller: function($log, $location, $rootScope) {
-      $log.log('ngbpNavs component is running');
-      var ctrl = this;
+import angular from 'angular';
 
-      ctrl.navTo = function(route) {
-        $location.url(route);
-      };
+class Ctrl {
+  constructor($log, $location, $rootScope) {
+    $log.log('ngbpNavs component is running');
+    let ctrl = this;
 
-      var dereg = $rootScope.$on('$routeChangeSuccess', function (event, current, previous, rejection) {
-        ctrl.$location = $location.url();
-      });
+    ctrl.navTo = function(route) {
+      $location.url(route);
+    };
 
-    }
-  });
-}(window.angular));
+    let dereg = $rootScope.$on('$routeChangeSuccess', (event, current, previous, rejection) => {
+      ctrl.$location = $location.url();
+    });
+
+  }
+}
+
+Ctrl.$inject = ['$log', '$location', '$rootScope'];
+
+class ngbpNavs {
+  constructor() {
+    Object.assign(this, {
+      templateUrl: '/components/ngbp-navs/ngbp-navs.html',
+      controllerAs: 'ctrl',
+      controller: Ctrl
+    });
+  }
+}
+
+angular.module('ngbp').component(ngbpNavs);

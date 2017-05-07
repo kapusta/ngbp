@@ -48,7 +48,7 @@ module.exports = function (grunt) {
     browserify: {
       ngbp: {
         src: ['./tmp/ngbp.annotated.js'],
-        dest: './tmp/browserified.js',
+        dest: './tmp/ngbp.browserified.js',
         options: {
           require: ['angular'],
         }
@@ -62,7 +62,7 @@ module.exports = function (grunt) {
         src: [
           'components/**/*.html'
         ],
-        dest: './tmp/ngbp-components.min.js',
+        dest: './tmp/ngbp.components.min.js',
         options: {
           standalone: false,
           prefix: '/',
@@ -80,7 +80,7 @@ module.exports = function (grunt) {
     concat: {
       'ngbp': {
         // grab the babel'd app and compiled templates
-        src: ['./tmp/ngbp.annotated.js', '<%= ngtemplates.ngbp.dest %>'],
+        src: ['./tmp/ngbp.browserified.js', '<%= ngtemplates.ngbp.dest %>'],
         dest: './tmp/ngbp.min.js'
       }
     },
