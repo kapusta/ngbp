@@ -4,10 +4,11 @@
   var ngbp = angular.module('ngbp', ['ngRoute']);
 
   // Configure the module.
-  ngbp.config(function($routeProvider, $locationProvider, $httpProvider) {
+  ngbp.config(function($routeProvider, $locationProvider, $httpProvider, plzProvider) {
     var baseUrl = '/';
 
     $locationProvider.html5Mode(true);
+    plzProvider.setTimeout(90000);
 
     $routeProvider
     .when(baseUrl, {
