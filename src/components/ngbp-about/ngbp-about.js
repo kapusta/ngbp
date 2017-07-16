@@ -10,7 +10,7 @@
   angular.module('ngbp').component('ngbpAbout', {
     templateUrl: '/components/ngbp-about/ngbp-about.html',
     controllerAs: 'ctrl',
-    controller: function($log) {
+    controller: function($log, plz) {
       $log.log('ngbpAbout component is running');
       var ctrl = this;
     }
