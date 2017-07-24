@@ -16,8 +16,18 @@
         return '<ngbp-about></ngbp-about>';
       }
     })
+    .when(baseUrl + 'fun', { //This works, but doesn't use components
+      template: "<h1> THIS IS A TEST <h1>"
+    })
+    .when(baseUrl + 'funny', { //This doesn't work and I still don't know why.
+      redirectTo: 'https://imgs.xkcd.com/comics/90s_flowchart.png'
+    })
+    .when(baseUrl + 'newf', {
+      
+    })
     .when(baseUrl + ':component', {
       template: function(params){
+        console.log(params);
         return '<ngbp-'+params.component+'></ngbp-'+params.component+'>';
       }
     })

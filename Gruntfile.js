@@ -94,8 +94,9 @@ module.exports = function (grunt) {
     cssmin: {
       compress: {
         files: {
-          './tmp/ngbp.min.css': ['./src/css/ngbp.css']
-        }
+          './tmp/ngbp.min.css': ['./src/css/ngbp.css'],
+          './tmp/test.min.css': ['./src/css/test.css']
+        } /*This was added for the test.css*/
       }
     },
 
@@ -132,6 +133,13 @@ module.exports = function (grunt) {
             expand: true,
             flatten: true,
             src: ['tmp/ngbp.min.css'],
+            dest: './www/css/',
+            filter: 'isFile'
+          },
+          { /*This was added for test.css*/
+            expand: true,
+            flatten: true,
+            src: ['tmp/test.min.css'],
             dest: './www/css/',
             filter: 'isFile'
           }
