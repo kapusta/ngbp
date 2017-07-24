@@ -1,0 +1,14 @@
+<div>
+  <form name="theBestFormEver">
+    Number: <input type="text" name="num" ng-model="val">
+  </form>
+</div>
+
+<div>
+  <span style="color: red;" ng-show="theBestFormEver.num.$error.badNumber">Invalid value </span>
+  <br />
+  <br />
+  <button ng-click="setValue(20.17)">Change Value to 20.17</button>
+  <br />
+  <button ng-click="setValue(201700.17)">Change Value to 201700.17</button>
+</div>
