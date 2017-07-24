@@ -15,7 +15,7 @@
     "start": "concurrently --kill-others 'lite-server -c bs-config.json' 'grunt watch'",
     "eslint": "eslint --ext .js src/components --ext .js || exit 0",
     "build": "grunt"
-},
+  },
   "devDependencies": {
     "concurrently": "^3.1.0",
     "eslint": "^3.19.0",

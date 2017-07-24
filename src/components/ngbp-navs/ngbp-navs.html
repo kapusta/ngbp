@@ -8,5 +8,19 @@
     <i class="fa fa-cog" aria-hidden="true"></i> Settings
   </button>
 
+  <!--Pretty much just copied the format -->
+
+  <button ng-click="ctrl.navTo('/newf')" type="button" class="btn button-hover" ng-class="(ctrl.$location === '/new') ? 'btn-primary' : ''" bs-button>
+    <i class="fa fa-exclamation" aria-hidden="true"></i> New Feature
+  </button>
+
+  <button ng-click="ctrl.navTo('/test')" type="button" class="btn button-hover" ng-class="(ctrl.$location === '/test') ? 'btn-primary' : ''" bs-button>
+    <i class="fa fa-photo" aria-hidden="true"></i> Samuel Button
+  </button>
+  <!--Pretty much just copied the format -->
+
+  <!-- Questions:
+
+  - Why do I need both ng-click and ng-class to point to the html/js files?-->
 
 </div>
