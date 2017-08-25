@@ -1,0 +1,35 @@
+<h2>{{ $ctrl.movie.title }}</h2>
+<p>
+  <strong>Worth: ${{ $ctrl.worth.toFixed(2) }}</strong><br>
+  Rating: {{ $ctrl.movie.rating }}<br>
+  Release Date: {{ $ctrl.movie.releaseDate }}<br>
+  Genre: {{ $ctrl.movie.genre }}
+</p>
+
+<h3>Reviews</h3>
+<div ng-repeat="review in $ctrl.movie.reviews">
+    <p>
+        Name: {{ review.name }} <br>
+        Worth: ${{ review.worth.toFixed(2) }} <br>
+        Thoughts: <br>
+        <i>{{ review.thoughts }}</i>
+    </p>
+</div>
+
+<form name="form" novalidate>
+  <h5>Add review</h5>
+  <p><label for="name">What is your name?</label></p>
+  <input type="text" id="name" name="name" ng-model="review.name">
+
+  <p><label for="worth">How much money was this movie worth?</label></p>
+  <input type="text" id="worth" name="worth" ng-model="review.worth" currency>
+
+  <p ng-if="form.worth.$error.currency" class="invalid">
+    Not a valid currency format
+  </p>
+
+  <p><label for="name">What are your thoughts?</label></p>
+  <textarea id="thoughts" name="thoughts" ng-model="review.thoughts"></textarea>
+
+  <p><button type="submit" ng-click="$ctrl.addReview(review)" ng-disabled="form.$invalid">Add Review</button></p>
+</form>
