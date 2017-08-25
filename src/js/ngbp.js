@@ -13,14 +13,24 @@
     $routeProvider
     .when(baseUrl, {
       template:  function(params){
-        return '<ngbp-about></ngbp-about>';
+        return '<movie-list></movie-list>';
       }
     })
-    .when(baseUrl + ':component', {
-      template: function(params){
-        return '<ngbp-'+params.component+'></ngbp-'+params.component+'>';
+    .when(baseUrl + 'movie/:title', {
+      template: function(params) {
+        return '<movie></movie>';
       }
     })
+    // .when(baseUrl + 'new/:routeName', {
+    //   template:  function(params){
+    //     return '<ngbp-new-route></ngbp-new-route>';
+    //   }
+    // })
+    // .when(baseUrl + ':component', {
+    //   template: function(params){
+    //     return '<ngbp-'+params.component+'></ngbp-'+params.component+'>';
+    //   }
+    // })
     .otherwise({redirectTo: baseUrl});
 
   });
