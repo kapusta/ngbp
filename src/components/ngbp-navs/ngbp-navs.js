@@ -10,7 +10,7 @@
   angular.module('ngbp').component('ngbpNavs', {
     templateUrl: '/components/ngbp-navs/ngbp-navs.html',
     controllerAs: 'ctrl',
-    controller: function($log, $location, $rootScope) {
+    controller: function($log, $location, $scope, $rootScope) {
       $log.log('ngbpNavs component is running');
       var ctrl = this;
 
@@ -22,6 +22,7 @@
         ctrl.$location = $location.url();
       });
 
+      $scope.$on('$destroy', dereg);
     }
   });
 }(window.angular));
