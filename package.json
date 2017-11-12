@@ -12,6 +12,7 @@
     "url": "http://about.me/dankapusta"
   },
   "scripts": {
+    "prestart": "grunt",
     "start": "concurrently --kill-others 'lite-server -c bs-config.json' 'grunt watch'",
     "eslint": "eslint --ext .js src/components --ext .js || exit 0",
     "build": "grunt"
@@ -32,7 +33,6 @@
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^2.0.0",
-    "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-uglify": "^2.2.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-ng-annotate": "^3.0.0",

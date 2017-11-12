@@ -1,6 +1,5 @@
 module.exports = function (grunt) {
 
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -11,17 +10,10 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-ng-annotate');
 
   // if you simply run 'grunt' these default tasks will execute, IN THE ORDER THEY APPEAR!
-  grunt.registerTask('default', ['jshint', 'clean', 'ngAnnotate', 'ngtemplates', 'uglify', 'concat', 'cssmin', 'copy']);
+  grunt.registerTask('default', ['clean', 'ngAnnotate', 'ngtemplates', 'uglify', 'concat', 'cssmin', 'copy']);
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-
-    jshint: {
-      files: ['./src/js/**/*.js', './src/components/**/*.js'],
-      options: {
-        jshintrc: '.jshintrc'
-      },
-    },
 
     clean: {
       options: {
